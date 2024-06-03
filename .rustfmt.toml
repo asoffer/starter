@@ -1,0 +1,4 @@
+edition = "2021"
+brace_style = "PreferSameLine"
+fn_single_line = true
+tab_spaces = 2

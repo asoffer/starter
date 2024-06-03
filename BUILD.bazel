@@ -1,0 +1,3 @@
+# This BUILD.bazel file must exist so that in the `WORKSPACE.bazel` file, we can
+# refer to `//:Cargo.toml`. Generally nothing should go in this file; all code
+# should be in the "//starter"-subdirectory.

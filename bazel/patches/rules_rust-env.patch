@@ -1,0 +1,18 @@
+--- rust/private/rustc.bzl	2024-05-27 16:39:39.245373093 -0400
++++ rust/private/rustc.bzl	2024-05-27 16:39:13.713334096 -0400
+@@ -1314,6 +1314,7 @@
+             inputs = compile_inputs,
+             outputs = action_outputs,
+             env = env,
++            use_default_shell_env = True,
+             arguments = args.all,
+             mnemonic = "Rustc",
+             progress_message = "Compiling Rust {} {}{} ({} files)".format(
+@@ -1349,6 +1350,7 @@
+             inputs = compile_inputs,
+             outputs = action_outputs,
+             env = env,
++            use_default_shell_env = True,
+             arguments = [args.rustc_path, args.rustc_flags],
+             mnemonic = "Rustc",
+             progress_message = "Compiling Rust (without process_wrapper) {} {}{} ({} files)".format(

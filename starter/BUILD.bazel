@@ -1,0 +1,35 @@
+load("@rules_rust//proto/prost:defs.bzl", "rust_prost_library")
+load("//bazel/rust:defs.bzl", "rs_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+rs_binary(
+    name = "greet",
+    srcs = ["greet.rs"],
+    deps = ["//starter:greeting_rs_proto"],
+)
+
+cc_binary(
+    name = "greeting_builder",
+    srcs = ["greeting_builder.cc"],
+    deps = [
+        "//starter:greeting_cc_proto",
+        "@abseil-cpp//absl/debugging:failure_signal_handler",
+        "@abseil-cpp//absl/debugging:symbolize",
+    ],
+)
+
+proto_library(
+    name = "greeting_proto",
+    srcs = ["greeting.proto"],
+)
+
+cc_proto_library(
+    name = "greeting_cc_proto",
+    deps = [":greeting_proto"],
+)
+
+rust_prost_library(
+    name = "greeting_rs_proto",
+    proto = ":greeting_proto",
+)

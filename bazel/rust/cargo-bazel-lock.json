@@ -1,0 +1,216 @@
+{
+  "checksum": "b0174e642320b2faec7bb8e875194150ba59055fb442e261a682977be7d1a435",
+  "crates": {
+    "anyhow 1.0.86": {
+      "name": "anyhow",
+      "version": "1.0.86",
+      "package_url": "https://github.com/dtolnay/anyhow",
+      "repository": {
+        "Http": {
+          "url": "https://static.crates.io/crates/anyhow/1.0.86/download",
+          "sha256": "b3d1d046238990b9cf5bcde22a3fb3584ee5cf65fb2765f454ed428c7a0063da"
+        }
+      },
+      "targets": [
+        {
+          "Library": {
+            "crate_name": "anyhow",
+            "crate_root": "src/lib.rs",
+            "srcs": {
+              "allow_empty": false,
+              "include": [
+                "**/*.rs"
+              ]
+            }
+          }
+        },
+        {
+          "BuildScript": {
+            "crate_name": "build_script_build",
+            "crate_root": "build.rs",
+            "srcs": {
+              "allow_empty": false,
+              "include": [
+                "**/*.rs"
+              ]
+            }
+          }
+        }
+      ],
+      "library_target_name": "anyhow",
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "crate_features": {
+          "common": [
+            "default",
+            "std"
+          ],
+          "selects": {}
+        },
+        "deps": {
+          "common": [
+            {
+              "id": "anyhow 1.0.86",
+              "target": "build_script_build"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2018",
+        "version": "1.0.86"
+      },
+      "build_script_attrs": {
+        "data_glob": [
+          "**"
+        ]
+      },
+      "license": "MIT OR Apache-2.0",
+      "license_ids": [
+        "Apache-2.0",
+        "MIT"
+      ],
+      "license_file": "LICENSE-APACHE"
+    },
+    "starter 0.1.0": {
+      "name": "starter",
+      "version": "0.1.0",
+      "package_url": null,
+      "repository": null,
+      "targets": [],
+      "library_target_name": null,
+      "common_attrs": {
+        "compile_data_glob": [
+          "**"
+        ],
+        "deps": {
+          "common": [
+            {
+              "id": "anyhow 1.0.86",
+              "target": "anyhow"
+            }
+          ],
+          "selects": {}
+        },
+        "edition": "2021",
+        "version": "0.1.0"
+      },
+      "license": null,
+      "license_ids": [],
+      "license_file": null
+    }
+  },
+  "binary_crates": [],
+  "workspace_members": {
+    "starter 0.1.0": ""
+  },
+  "conditions": {
+    "aarch64-apple-darwin": [
+      "aarch64-apple-darwin"
+    ],
+    "aarch64-apple-ios": [
+      "aarch64-apple-ios"
+    ],
+    "aarch64-apple-ios-sim": [
+      "aarch64-apple-ios-sim"
+    ],
+    "aarch64-fuchsia": [
+      "aarch64-fuchsia"
+    ],
+    "aarch64-linux-android": [
+      "aarch64-linux-android"
+    ],
+    "aarch64-pc-windows-msvc": [
+      "aarch64-pc-windows-msvc"
+    ],
+    "aarch64-unknown-linux-gnu": [
+      "aarch64-unknown-linux-gnu"
+    ],
+    "aarch64-unknown-nixos-gnu": [
+      "aarch64-unknown-nixos-gnu"
+    ],
+    "aarch64-unknown-nto-qnx710": [
+      "aarch64-unknown-nto-qnx710"
+    ],
+    "arm-unknown-linux-gnueabi": [
+      "arm-unknown-linux-gnueabi"
+    ],
+    "armv7-linux-androideabi": [
+      "armv7-linux-androideabi"
+    ],
+    "armv7-unknown-linux-gnueabi": [
+      "armv7-unknown-linux-gnueabi"
+    ],
+    "i686-apple-darwin": [
+      "i686-apple-darwin"
+    ],
+    "i686-linux-android": [
+      "i686-linux-android"
+    ],
+    "i686-pc-windows-msvc": [
+      "i686-pc-windows-msvc"
+    ],
+    "i686-unknown-freebsd": [
+      "i686-unknown-freebsd"
+    ],
+    "i686-unknown-linux-gnu": [
+      "i686-unknown-linux-gnu"
+    ],
+    "powerpc-unknown-linux-gnu": [
+      "powerpc-unknown-linux-gnu"
+    ],
+    "riscv32imc-unknown-none-elf": [
+      "riscv32imc-unknown-none-elf"
+    ],
+    "riscv64gc-unknown-none-elf": [
+      "riscv64gc-unknown-none-elf"
+    ],
+    "s390x-unknown-linux-gnu": [
+      "s390x-unknown-linux-gnu"
+    ],
+    "thumbv7em-none-eabi": [
+      "thumbv7em-none-eabi"
+    ],
+    "thumbv8m.main-none-eabi": [
+      "thumbv8m.main-none-eabi"
+    ],
+    "wasm32-unknown-unknown": [
+      "wasm32-unknown-unknown"
+    ],
+    "wasm32-wasi": [
+      "wasm32-wasi"
+    ],
+    "x86_64-apple-darwin": [
+      "x86_64-apple-darwin"
+    ],
+    "x86_64-apple-ios": [
+      "x86_64-apple-ios"
+    ],
+    "x86_64-fuchsia": [
+      "x86_64-fuchsia"
+    ],
+    "x86_64-linux-android": [
+      "x86_64-linux-android"
+    ],
+    "x86_64-pc-windows-msvc": [
+      "x86_64-pc-windows-msvc"
+    ],
+    "x86_64-unknown-freebsd": [
+      "x86_64-unknown-freebsd"
+    ],
+    "x86_64-unknown-linux-gnu": [
+      "x86_64-unknown-linux-gnu"
+    ],
+    "x86_64-unknown-nixos-gnu": [
+      "x86_64-unknown-nixos-gnu"
+    ],
+    "x86_64-unknown-none": [
+      "x86_64-unknown-none"
+    ]
+  },
+  "direct_deps": [
+    "anyhow 1.0.86"
+  ],
+  "direct_dev_deps": []
+}

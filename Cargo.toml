@@ -1,0 +1,12 @@
+[package]
+name = "starter"
+version = "0.1.0"
+authors = []
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0"
+
+[[bin]]
+name = "greet"
+path = "starter/greet.rs"

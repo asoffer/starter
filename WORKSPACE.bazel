@@ -1,0 +1,33 @@
+workspace(name = "starter")
+
+# Initialize `rules_rust` and its dependencies, and registers a toolchain.
+load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_register_toolchains")
+rules_rust_dependencies()
+rust_register_toolchains(edition = "2021")
+
+# In order to get Bazel to interoperate nicely wit Cargo, we need to create a
+# universe of crates that will be transitively depended on, and can be included
+# into the project.
+load("@rules_rust//crate_universe:repositories.bzl", "crate_universe_dependencies")
+crate_universe_dependencies()
+
+# Each time any Cargo dependency is updated (either because a specification here
+# is updated, or a dependency is added, removed, or updated, you will need to
+# manually rerun
+#
+#     `CARGO_BAZEL_REPIN=1 bazel sync --only=crate_index`
+#
+load("@rules_rust//crate_universe:defs.bzl", "crates_repository", "crate")
+crates_repository(
+    name = "crate_index",
+    cargo_lockfile = "//:Cargo.lock",
+    lockfile = "//bazel/rust:cargo-bazel-lock.json",
+    manifests = [
+        "//:Cargo.toml",
+    ],
+)
+
+load("@crate_index//:defs.bzl", "crate_repositories")
+crate_repositories()
+
+register_toolchains("//bazel/cc:toolchain_for_linux_x86_64")

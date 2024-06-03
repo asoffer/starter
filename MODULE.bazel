@@ -1,0 +1,17 @@
+bazel_dep(name = "abseil-cpp", version = "20240116.2")
+bazel_dep(name = "protobuf", version = "26.0")
+bazel_dep(name = "rules_rust", version = "0.45.1")
+
+single_version_override(
+    module_name = "rules_rust",
+    version = "0.45.1",
+    patches = [
+        # There seems to be a bug in `rules_rust` where the environment in which
+        # Rust compilation for tools run does not contain a path for `ld`. This
+        # patch injects in `use_default_shell_env` to propogate the users
+        # `$PATH` to the execution environment. Note that this patch makes
+        # builds less hermetic as they're subject to the existing default shell
+        # environment.
+        "//bazel/patches:rules_rust-env.patch"
+    ],
+)
